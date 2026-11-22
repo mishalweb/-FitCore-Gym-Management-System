@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.fitcore.controller.DashboardController" styleClass="dashboard-root">
+    <top>
+        <VBox spacing="18" styleClass="top-shell">
+            <padding><Insets top="22" right="28" bottom="18" left="28"/></padding>
+            <HBox alignment="CENTER_LEFT" spacing="18">
+                <VBox spacing="2">
+                    <Label text="FITCORE" styleClass="brand-medium"/>
+                    <Label text="GYM MANAGEMENT SYSTEM" styleClass="eyebrow"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="adminLabel" text="Welcome, Admin" styleClass="muted"/>
+                <Button text="Refresh data" onAction="#refreshAll" styleClass="ghost-button"/>
+                <Button fx:id="logoutButton" text="Log out" onAction="#logout" styleClass="outline-button"/>
+            </HBox>
+            <HBox spacing="14" alignment="CENTER">
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="6">
+                    <Label text="REGISTERED ACTIVE MEMBERS" styleClass="eyebrow"/>
+                    <Label fx:id="membersCount" text="—" styleClass="stat-number"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="6">
+                    <Label text="CURRENT MEMBERSHIPS" styleClass="eyebrow"/>
+                    <Label fx:id="membershipCount" text="—" styleClass="stat-number"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="6">
+                    <Label text="CHECK-INS TODAY" styleClass="eyebrow"/>
+                    <Label fx:id="todayCount" text="—" styleClass="stat-number"/>
+                </VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="6">
+                    <Label text="PAYMENTS RECORDED" styleClass="eyebrow"/>
+                    <Label fx:id="revenueCount" text="—" styleClass="stat-number"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="main-tabs">
+            <tabs>
+                <Tab text="MEMBERS">
+                    <content>
+                        <VBox spacing="12" styleClass="page-panel">
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <VBox spacing="4">
+                                    <Label text="Members" styleClass="section-title"/>
+                                    <Label text="Register and manage gym members." styleClass="muted"/>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="memberSearch" promptText="Search name, email or phone" prefWidth="285"/>
+                            </HBox>
+                            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                                <TableView fx:id="membersTable" HBox.hgrow="ALWAYS"/>
+                                <VBox prefWidth="260" minWidth="260" spacing="12" styleClass="form-panel">
+                                    <Label text="MEMBER DETAILS" styleClass="eyebrow"/>
+                                    <Label text="Full name" styleClass="field-label"/>
+                                    <TextField fx:id="memberName" promptText="Member name"/>
+                                    <Label text="Email (optional)" styleClass="field-label"/>
+                                    <TextField fx:id="memberEmail" promptText="member@example.com"/>
+                                    <Label text="Phone" styleClass="field-label"/>
+                                    <TextField fx:id="memberPhone" promptText="01XXXXXXXXX"/>
+                                    <Label text="Status" styleClass="field-label"/>
+                                    <ComboBox fx:id="memberStatus" maxWidth="Infinity"/>
+                                    <Region prefHeight="7"/>
+                                    <Button text="+ Add Member" maxWidth="Infinity" onAction="#addMember" styleClass="primary-button"/>
+                                    <Button text="Update Selected" maxWidth="Infinity" onAction="#updateMember" styleClass="outline-button"/>
+                                    <Label text="Select a table row to edit it. Set status INACTIVE instead of deleting historical records." wrapText="true" styleClass="tiny-note"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="PLANS">
+                    <content>
+                        <VBox spacing="12" styleClass="page-panel">
+                            <Label text="Membership plans" styleClass="section-title"/>
+                            <Label text="Create plans with a duration and fee in BDT." styleClass="muted"/>
+                            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                                <TableView fx:id="plansTable" HBox.hgrow="ALWAYS"/>
+                                <VBox prefWidth="260" minWidth="260" spacing="12" styleClass="form-panel">
+                                    <Label text="NEW PLAN" styleClass="eyebrow"/>
+                                    <Label text="Plan name" styleClass="field-label"/>
+                                    <TextField fx:id="planName" promptText="e.g. Student Monthly"/>
+                                    <Label text="Duration (days)" styleClass="field-label"/>
+                                    <TextField fx:id="planDuration" promptText="30"/>
+                                    <Label text="Fee (BDT)" styleClass="field-label"/>
+                                    <TextField fx:id="planPrice" promptText="2000.00"/>
+                                    <Region prefHeight="10"/>
+                                    <Button text="+ Create Plan" maxWidth="Infinity" onAction="#addPlan" styleClass="primary-button"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="TRAINERS">
+                    <content>
+                        <VBox spacing="12" styleClass="page-panel">
+                            <Label text="Trainer directory" styleClass="section-title"/>
+                            <Label text="Keep your trainer contact information organized." styleClass="muted"/>
+                            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                                <TableView fx:id="trainersTable" HBox.hgrow="ALWAYS"/>
+                                <VBox prefWidth="260" minWidth="260" spacing="12" styleClass="form-panel">
+                                    <Label text="NEW TRAINER" styleClass="eyebrow"/>
+                                    <Label text="Full name" styleClass="field-label"/>
+                                    <TextField fx:id="trainerName" promptText="Trainer name"/>
+                                    <Label text="Specialty" styleClass="field-label"/>
+                                    <TextField fx:id="trainerSpecialty" promptText="Strength / Yoga / Cardio"/>
+                                    <Label text="Phone" styleClass="field-label"/>
+                                    <TextField fx:id="trainerPhone" promptText="01XXXXXXXXX"/>
+                                    <Region prefHeight="10"/>
+                                    <Button text="+ Add Trainer" maxWidth="Infinity" onAction="#addTrainer" styleClass="primary-button"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="MEMBERSHIPS">
+                    <content>
+                        <VBox spacing="12" styleClass="page-panel">
+                            <Label text="Memberships &amp; renewals" styleClass="section-title"/>
+                            <Label text="Enroll a member into a plan. The plan fee is recorded as paid when you enroll." styleClass="muted"/>
+                            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                                <TableView fx:id="subscriptionsTable" HBox.hgrow="ALWAYS"/>
+                                <VBox prefWidth="260" minWidth="260" spacing="12" styleClass="form-panel">
+                                    <Label text="ENROLL MEMBER" styleClass="eyebrow"/>
+                                    <Label text="Choose member" styleClass="field-label"/>
+                                    <ComboBox fx:id="enrollmentMember" maxWidth="Infinity" promptText="Select member"/>
+                                    <Label text="Membership plan" styleClass="field-label"/>
+                                    <ComboBox fx:id="enrollmentPlan" maxWidth="Infinity" promptText="Select plan"/>
+                                    <Label text="Starts on" styleClass="field-label"/>
+                                    <DatePicker fx:id="enrollmentStart" maxWidth="Infinity"/>
+                                    <Label text="Payment method" styleClass="field-label"/>
+                                    <ComboBox fx:id="enrollmentMethod" maxWidth="Infinity"/>
+                                    <Button text="Enroll &amp; Record Payment" maxWidth="Infinity" onAction="#enrollMember" styleClass="primary-button"/>
+                                    <Label text="New enrollment ends a previously active plan. An expired plan still appears with its original record status." wrapText="true" styleClass="tiny-note"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="ATTENDANCE">
+                    <content>
+                        <VBox spacing="12" styleClass="page-panel">
+                            <Label text="Daily check-in" styleClass="section-title"/>
+                            <Label text="A member may check in once per day and must have a current valid membership." styleClass="muted"/>
+                            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                                <TableView fx:id="attendanceTable" HBox.hgrow="ALWAYS"/>
+                                <VBox prefWidth="260" minWidth="260" spacing="12" styleClass="form-panel">
+                                    <Label text="CHECK IN MEMBER" styleClass="eyebrow"/>
+                                    <Label text="Member" styleClass="field-label"/>
+                                    <ComboBox fx:id="checkinMember" maxWidth="Infinity" promptText="Choose a member"/>
+                                    <Button text="Check In Today" maxWidth="Infinity" onAction="#checkIn" styleClass="primary-button"/>
+                                    <Label text="Duplicate check-ins are prevented by the MySQL database." wrapText="true" styleClass="tiny-note"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="PAYMENTS">
+                    <content>
+                        <VBox spacing="12" styleClass="page-panel">
+                            <Label text="Payments" styleClass="section-title"/>
+                            <Label text="Review membership payments and record additional fees." styleClass="muted"/>
+                            <HBox spacing="16" VBox.vgrow="ALWAYS">
+                                <TableView fx:id="paymentsTable" HBox.hgrow="ALWAYS"/>
+                                <VBox prefWidth="260" minWidth="260" spacing="12" styleClass="form-panel">
+                                    <Label text="RECORD PAYMENT" styleClass="eyebrow"/>
+                                    <Label text="Member" styleClass="field-label"/>
+                                    <ComboBox fx:id="paymentMember" maxWidth="Infinity" promptText="Choose a member"/>
+                                    <Label text="Amount (BDT)" styleClass="field-label"/>
+                                    <TextField fx:id="paymentAmount" promptText="500"/>
+                                    <Label text="Payment method" styleClass="field-label"/>
+                                    <ComboBox fx:id="paymentMethod" maxWidth="Infinity"/>
+                                    <Label text="Note" styleClass="field-label"/>
+                                    <TextField fx:id="paymentNote" promptText="e.g. Personal training"/>
+                                    <Button text="Record Payment" maxWidth="Infinity" onAction="#recordPayment" styleClass="primary-button"/>
+                                    <Label text="This is a payment ledger; no bank or bKash APIs are connected." wrapText="true" styleClass="tiny-note"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+    <bottom>
+        <HBox styleClass="bottom-bar" alignment="CENTER_LEFT">
+            <padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
+            <Label fx:id="statusLabel" text="FitCore is ready." styleClass="tiny-note"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="FITCORE  •  LOCAL DESKTOP EDITION" styleClass="eyebrow"/>
+        </HBox>
+    </bottom>
+</BorderPane>

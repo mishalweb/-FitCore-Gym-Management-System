@@ -1,0 +1,53 @@
+.root { -fx-font-family: "Segoe UI", Arial, sans-serif; -fx-font-size: 13px; -fx-background-color: #0d1117; }
+.label { -fx-text-fill: #f5f7fb; }
+.login-root { -fx-background-color: #0b1015; }
+.login-brand { -fx-background-color: linear-gradient(to bottom right, #12322c, #111e20, #101317); }
+.login-card { -fx-background-color: #171d24; -fx-border-color: #2c3b39; -fx-border-width: 1; -fx-background-radius: 16; -fx-border-radius: 16; }
+.brand-large { -fx-text-fill: #d7ee8b; -fx-font-size: 49px; -fx-font-weight: 900; }
+.brand-medium { -fx-text-fill: #d7ee8b; -fx-font-size: 25px; -fx-font-weight: 900; }
+.hero-text { -fx-text-fill: #ffffff; -fx-font-size: 37px; -fx-font-weight: bold; }
+.headline { -fx-font-size: 29px; -fx-font-weight: bold; }
+.eyebrow { -fx-text-fill: #99b4a0; -fx-font-weight: bold; -fx-font-size: 10px; }
+.muted { -fx-text-fill: #9eabb1; -fx-font-size: 12px; }
+.muted-lg { -fx-text-fill: #bed0c9; -fx-font-size: 15px; }
+.tiny-note { -fx-text-fill: #8f9da4; -fx-font-size: 11px; }
+.field-label { -fx-text-fill: #c3cbd0; -fx-font-weight: bold; -fx-font-size: 12px; }
+.error-label { -fx-text-fill: #ff8d8d; }
+.text-field, .password-field, .combo-box-base, .date-picker { -fx-background-color: #202932; -fx-border-color: #384650; -fx-border-radius: 7; -fx-background-radius: 7; -fx-text-fill: white; -fx-prompt-text-fill: #8d999f; -fx-pref-height: 37; }
+.text-field:focused, .password-field:focused, .combo-box-base:focused { -fx-border-color: #d7ee8b; }
+.combo-box .list-cell { -fx-text-fill: #f3f6f7; -fx-background-color: #202932; }
+.combo-box-popup .list-view, .combo-box-popup .list-cell { -fx-background-color: #202932; -fx-text-fill: white; }
+.combo-box-popup .list-cell:hover { -fx-background-color: #34483e; }
+.date-picker .text-field { -fx-border-color: transparent; }
+.button { -fx-cursor: hand; -fx-font-weight: bold; -fx-padding: 10 15; }
+.primary-button { -fx-background-color: #d7ee8b; -fx-text-fill: #17231a; -fx-background-radius: 7; }
+.primary-button:hover { -fx-background-color: #e6ff9d; }
+.outline-button { -fx-background-color: #222d30; -fx-text-fill: #e4f4c0; -fx-border-color: #46564d; -fx-border-radius: 7; -fx-background-radius: 7; }
+.outline-button:hover { -fx-background-color: #35413e; }
+.ghost-button { -fx-background-color: #2c3a32; -fx-text-fill: #d6e6d6; -fx-background-radius: 7; }
+.dashboard-root { -fx-background-color: #0d1419; }
+.top-shell { -fx-background-color: #151d22; -fx-border-color: #2d3939; -fx-border-width: 0 0 1 0; }
+.stat-card { -fx-background-color: #1e2a2b; -fx-padding: 17; -fx-background-radius: 10; -fx-border-color: #374643; -fx-border-radius: 10; }
+.stat-number { -fx-text-fill: #d7ee8b; -fx-font-size: 27px; -fx-font-weight: bold; }
+.main-tabs { -fx-background-color: #0d1419; }
+.main-tabs .tab-header-area { -fx-padding: 13 18 0 18; }
+.main-tabs .tab-header-background { -fx-background-color: #131c21; }
+.main-tabs .tab { -fx-background-color: #223034; -fx-background-radius: 7 7 0 0; -fx-padding: 8 15; }
+.main-tabs .tab:selected { -fx-background-color: #d7ee8b; }
+.main-tabs .tab .tab-label { -fx-text-fill: #c9d6d2; -fx-font-weight: bold; -fx-font-size: 11px; }
+.main-tabs .tab:selected .tab-label { -fx-text-fill: #1d291e; }
+.main-tabs .tab-content-area { -fx-background-color: #0d1419; }
+.page-panel { -fx-padding: 24; -fx-background-color: #0d1419; }
+.section-title { -fx-text-fill: #f4f8f6; -fx-font-size: 25px; -fx-font-weight: bold; }
+.form-panel { -fx-background-color: #1b252b; -fx-padding: 22; -fx-background-radius: 10; -fx-border-color: #33413f; -fx-border-radius: 10; }
+.table-view { -fx-background-color: #172126; -fx-border-color: #34443f; -fx-background-radius: 8; -fx-border-radius: 8; }
+.table-view .column-header-background { -fx-background-color: #273735; }
+.table-view .column-header, .table-view .filler { -fx-background-color: #273735; -fx-border-color: #3b4d46; }
+.table-view .column-header .label { -fx-text-fill: #e8f3da; -fx-font-weight: bold; }
+.table-view .table-cell { -fx-text-fill: #e3eae7; -fx-border-color: #2c383a; }
+.table-view .table-row-cell { -fx-background-color: #182328; }
+.table-view .table-row-cell:odd { -fx-background-color: #1d292d; }
+.table-view .table-row-cell:selected { -fx-background-color: #3b5845; }
+.table-view .placeholder .label { -fx-text-fill: #9fafaa; }
+.bottom-bar { -fx-background-color: #151d22; -fx-border-color: #2d3939; -fx-border-width: 1 0 0 0; }
+.scroll-bar .thumb { -fx-background-color: #465b55; }
